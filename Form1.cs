@@ -16,6 +16,7 @@ namespace LarsRoboterarm
         public Form1()
         {
             InitializeComponent();
+            //fkt. trackbar value changed an event anmelden
             trackBar1.ValueChanged += trackBarValueChanged;
             trackBar2.ValueChanged += trackBarValueChanged;
             trackBar3.ValueChanged += trackBarValueChanged;
@@ -45,12 +46,14 @@ namespace LarsRoboterarm
                         angles[4] = trackBar.Value;
                         break;
                 }
+                //zeichnen
                 pictureBox1.Refresh();
             }
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
+            //zeichenbefehl mit e.Graphics (graphics objekt der picturebox
             RoboterArmZeichnung.Draw(e.Graphics, angles);
         }
     }
